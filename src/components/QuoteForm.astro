@@ -1,0 +1,126 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
+const buildingTypes = [
+  'Agricultural Building',
+  'Commercial Building',
+  'Barndominium / Residential',
+  'Metal Roofing',
+  'Church Building',
+  'Garage / Workshop',
+  'Storage Building',
+  'Other',
+];
+---
+
+<form
+  action="https://formsubmit.co/Tara@HuddleSteelBuildings.com"
+  method="POST"
+  class="space-y-5"
+>
+  <input type="hidden" name="_subject" value="New Quote Request from Website" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="text" name="_honey" style="display:none" />
+
+  <div class:list={['grid gap-5', compact ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2']}>
+    <div>
+      <label for="name" class="block text-sm font-medium text-white mb-1.5">Full Name *</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white placeholder-dark-gray focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+        placeholder="John Smith"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-white mb-1.5">Email *</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white placeholder-dark-gray focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+        placeholder="john@example.com"
+      />
+    </div>
+    <div>
+      <label for="phone" class="block text-sm font-medium text-white mb-1.5">Phone *</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white placeholder-dark-gray focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+        placeholder="(903) 555-0123"
+      />
+    </div>
+    <div>
+      <label for="building-type" class="block text-sm font-medium text-white mb-1.5">Building Type *</label>
+      <select
+        id="building-type"
+        name="building_type"
+        required
+        class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+      >
+        <option value="" disabled selected>Select a building type</option>
+        {buildingTypes.map(type => (
+          <option value={type}>{type}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  {!compact && (
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label for="size" class="block text-sm font-medium text-white mb-1.5">Approximate Size</label>
+        <input
+          type="text"
+          id="size"
+          name="size"
+          class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white placeholder-dark-gray focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+          placeholder="e.g. 40x60"
+        />
+      </div>
+      <div>
+        <label for="timeline" class="block text-sm font-medium text-white mb-1.5">Timeline</label>
+        <select
+          id="timeline"
+          name="timeline"
+          class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors"
+        >
+          <option value="" disabled selected>When do you need it?</option>
+          <option value="asap">As soon as possible</option>
+          <option value="1-3months">1-3 months</option>
+          <option value="3-6months">3-6 months</option>
+          <option value="6months+">6+ months</option>
+          <option value="justlooking">Just researching</option>
+        </select>
+      </div>
+    </div>
+  )}
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-white mb-1.5">Project Details</label>
+    <textarea
+      id="message"
+      name="message"
+      rows={compact ? 3 : 5}
+      class="w-full px-4 py-2.5 bg-charcoal border border-border rounded-md text-white placeholder-dark-gray focus:outline-none focus:border-burnt-orange focus:ring-1 focus:ring-burnt-orange transition-colors resize-y"
+      placeholder="Tell us about your project — dimensions, intended use, location, etc."
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-burnt-orange hover:bg-burnt-orange-dark text-white font-bold rounded-md transition-colors text-lg"
+  >
+    Request Free Quote
+  </button>
+</form>

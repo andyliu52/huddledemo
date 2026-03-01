@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout
+  title="Blog | Metal Building Tips & News | Huddle Steel Buildings"
+  description="Read the latest tips, guides, and news about metal buildings, barndominiums, steel construction, and metal roofing from Huddle Steel Buildings in Canton, TX."
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog' }]} />
+
+      <div class="mt-8 mb-12">
+        <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Our Blog</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+          Steel Building <span class="text-burnt-orange">Insights</span>
+        </h1>
+        <p class="text-lg text-medium-gray max-w-3xl">
+          Tips, guides, and news about metal buildings, barndominiums, and steel construction in East Texas.
+        </p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map(post => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={post.id}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <p class="text-medium-gray text-lg">Blog posts coming soon. Check back later!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

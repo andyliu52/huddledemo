@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'agricultural', label: 'Agricultural' },
+  { id: 'commercial', label: 'Commercial' },
+  { id: 'residential', label: 'Residential' },
+  { id: 'roofing', label: 'Metal Roofing' },
+  { id: 'churches', label: 'Churches' },
+];
+
+const projects = [
+  { title: '50\'x60\' Barndominium', location: 'Athens, TX', category: 'residential', desc: 'Light stone walls with burnished slate roof and trim' },
+  { title: '25\'x40\' Insulated Storage', location: 'Canton, TX', category: 'commercial', desc: 'Fully insulated storage building' },
+  { title: '40\'x80\' Equipment Barn', location: 'Tyler, TX', category: 'agricultural', desc: 'Clear-span agricultural equipment storage' },
+  { title: '60\'x100\' Warehouse', location: 'Terrell, TX', category: 'commercial', desc: 'Commercial warehouse with office space' },
+  { title: '30\'x50\' Workshop', location: 'Emory, TX', category: 'commercial', desc: 'Insulated workshop with roll-up doors' },
+  { title: '50\'x80\' Riding Arena', location: 'Van, TX', category: 'agricultural', desc: 'Covered riding arena with open sides' },
+  { title: '40\'x60\' Barndominium', location: 'Mineola, TX', category: 'residential', desc: 'Custom barndo with wraparound porch' },
+  { title: 'Standing Seam Re-Roof', location: 'Canton, TX', category: 'roofing', desc: 'Complete metal roof replacement' },
+  { title: '80\'x120\' Church Building', location: 'Wills Point, TX', category: 'churches', desc: 'Clear-span sanctuary with fellowship hall' },
+  { title: '30\'x40\' Hay Barn', location: 'Grand Saline, TX', category: 'agricultural', desc: 'Open-sided hay storage building' },
+  { title: '50\'x100\' Auto Shop', location: 'Kaufman, TX', category: 'commercial', desc: 'Commercial auto repair facility' },
+  { title: 'R-Panel Roof Installation', location: 'Gun Barrel City, TX', category: 'roofing', desc: 'New construction metal roofing' },
+];
+---
+
+<Layout
+  title="Project Gallery | Metal Building Photos | Huddle Steel Buildings"
+  description="Browse photos of completed metal building projects by Huddle Steel Buildings. Agricultural buildings, commercial structures, barndominiums, metal roofing, and churches in East Texas."
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Gallery' }]} />
+
+      <div class="mt-8 mb-12">
+        <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Our Work</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+          Project <span class="text-burnt-orange">Gallery</span>
+        </h1>
+        <p class="text-lg text-medium-gray max-w-3xl">
+          Browse our completed metal building projects across East Texas. From barndominiums to commercial warehouses, see the quality and craftsmanship of Huddle Steel Buildings.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-10">
+        {categories.map(cat => (
+          <button
+            data-filter={cat.id}
+            class:list={[
+              'filter-btn px-4 py-2 rounded-full text-sm font-medium border transition-colors',
+              cat.id === 'all'
+                ? 'bg-burnt-orange text-white border-burnt-orange'
+                : 'text-medium-gray border-border hover:border-burnt-orange/50 hover:text-burnt-orange',
+            ]}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map(project => (
+          <div data-category={project.category} class="gallery-item group relative aspect-[4/3] bg-charcoal-lighter rounded-lg overflow-hidden border border-border hover:border-burnt-orange/50 transition-all">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-16 h-16 text-dark-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-white font-semibold">{project.title}</p>
+              <p class="text-medium-gray text-sm">{project.location}</p>
+              <p class="text-dark-gray text-xs mt-1">{project.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-charcoal-light border border-border rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">More Photos Coming Soon</h2>
+        <p class="text-medium-gray max-w-xl mx-auto">
+          We're adding new project photos regularly. Follow us on Facebook or check back soon to see our latest work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = (btn as HTMLElement).dataset.filter;
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-burnt-orange', 'text-white', 'border-burnt-orange');
+        b.classList.add('text-medium-gray', 'border-border');
+      });
+      btn.classList.add('bg-burnt-orange', 'text-white', 'border-burnt-orange');
+      btn.classList.remove('text-medium-gray', 'border-border');
+
+      items.forEach(item => {
+        const el = item as HTMLElement;
+        if (filter === 'all' || el.dataset.category === filter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

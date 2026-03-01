@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const faqs = [
+  {
+    question: 'What types of commercial buildings do you construct?',
+    answer: 'We build warehouses, retail stores, auto shops, office buildings, workshops, storage facilities, manufacturing plants, and more. Every building is custom-designed to meet your business needs.',
+  },
+  {
+    question: 'How much does a commercial steel building cost?',
+    answer: 'Costs vary based on size, complexity, and finishes. Steel buildings are typically 30-50% less expensive than traditional construction. Contact us for a free, detailed quote.',
+  },
+  {
+    question: 'Can steel buildings be expanded later?',
+    answer: 'Yes. One of the advantages of steel construction is easy expandability. Buildings can be extended in length or width with minimal structural modification.',
+  },
+  {
+    question: 'Do you handle permitting and site preparation?',
+    answer: 'We can guide you through the permitting process and work with local authorities. We also coordinate site preparation and foundation work as part of our turn-key services.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Commercial Steel Buildings | Warehouses & Offices | Huddle Steel Buildings"
+  description="Custom commercial steel buildings in Canton, TX and East Texas. Warehouses, retail spaces, auto shops, offices, and industrial buildings. Free quotes available."
+  schema={faqSchema}
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Commercial Buildings' }]} />
+
+      <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div>
+          <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Commercial</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6">
+            <span class="text-burnt-orange">Commercial</span> Steel Buildings
+          </h1>
+          <p class="text-lg text-medium-gray leading-relaxed mb-6">
+            From warehouses to retail spaces, Huddle Steel Buildings delivers commercial construction solutions that are cost-effective, durable, and built fast. Perfect for East Texas businesses looking to expand or build new.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {['Warehouses & Distribution Centers', 'Retail & Storefront Buildings', 'Auto Shops & Garages', 'Office Buildings', 'Workshops & Manufacturing', 'Self-Storage Facilities'].map(item => (
+              <li class="flex items-center gap-3 text-medium-gray">
+                <svg class="w-5 h-5 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/quote" class="inline-flex items-center px-8 py-3.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white font-bold rounded-md transition-colors text-lg">
+            Get a Free Quote
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-0">
+          <div class="aspect-[4/3] bg-charcoal-lighter rounded-lg border border-border flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-dark-gray mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <p class="text-dark-gray text-sm">Project photos coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Why Steel for <span class="text-burnt-orange">Business</span>?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {[
+          { title: 'Faster Build Times', desc: 'Pre-engineered steel components reduce construction time by 30-50% compared to traditional methods.' },
+          { title: 'Lower Total Cost', desc: 'Reduced construction time plus lower maintenance equals significant savings over the building\'s lifetime.' },
+          { title: 'Energy Efficient', desc: 'Insulated metal panels and cool-roof coatings keep energy costs down in the Texas heat.' },
+          { title: 'Easy Expansion', desc: 'Steel buildings can be expanded in length or width when your business grows, without major renovation.' },
+          { title: 'Fire Resistant', desc: 'Steel is non-combustible, providing superior fire resistance and potentially lower insurance premiums.' },
+          { title: 'Design Flexibility', desc: 'Stone, brick, stucco, or glass accents can be added to match any commercial aesthetic.' },
+        ].map(item => (
+          <div class="bg-charcoal border border-border rounded-lg p-6">
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-medium-gray text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-8">Frequently Asked <span class="text-burnt-orange">Questions</span></h2>
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="border-b border-border pb-6">
+            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+            <p class="text-medium-gray leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Ready to Build Your Business?" description="Get a free quote on your commercial steel building project." />
+</Layout>

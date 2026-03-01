@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.huddlesteelbuildings.com/sitemap-index.xml

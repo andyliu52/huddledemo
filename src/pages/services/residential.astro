@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const faqs = [
+  {
+    question: 'What is a barndominium?',
+    answer: 'A barndominium (or "barndo") is a steel-framed building that combines living space with work or storage areas. They offer open floor plans, modern amenities, and the durability of steel construction at a fraction of traditional home-building costs.',
+  },
+  {
+    question: 'How much does a barndominium cost per square foot?',
+    answer: 'Barndominium costs in East Texas typically range from $65-$150 per square foot depending on finishes and features. This is significantly less than traditional home construction, which often runs $150-$300+ per square foot.',
+  },
+  {
+    question: 'Can I customize the interior of my barndominium?',
+    answer: 'Absolutely. Barndominiums offer complete design freedom for the interior. You can include custom kitchens, bathrooms, bedrooms, offices, and shop areas. The open-span steel frame means no load-bearing interior walls, giving you maximum flexibility.',
+  },
+  {
+    question: 'Can I finance a barndominium?',
+    answer: 'Yes. Many lenders in Texas offer construction loans and mortgages for barndominiums. We can recommend lenders in the East Texas area who specialize in barndominium financing.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Barndominiums & Residential Metal Buildings | Huddle Steel Buildings | Canton, TX"
+  description="Custom barndominiums and residential metal buildings in Canton, TX and East Texas. Open floor plans, energy efficient, and built to last. Get a free quote today."
+  schema={faqSchema}
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Barndominiums & Residential' }]} />
+
+      <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div>
+          <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Residential</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6">
+            Custom <span class="text-burnt-orange">Barndominiums</span>
+          </h1>
+          <p class="text-lg text-medium-gray leading-relaxed mb-6">
+            Build your dream home the Texas way. Our barndominiums combine the rugged durability of steel construction with the comfort and style of modern living — all at a price that makes sense.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {['Custom Floor Plans', 'Open-Concept Living Spaces', 'Attached Workshops & Garages', 'Energy-Efficient Insulation', 'Modern Kitchen & Bath Finishes', 'Wraparound Porches & Patios'].map(item => (
+              <li class="flex items-center gap-3 text-medium-gray">
+                <svg class="w-5 h-5 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/quote" class="inline-flex items-center px-8 py-3.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white font-bold rounded-md transition-colors text-lg">
+            Get a Free Quote
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-0">
+          <div class="aspect-[4/3] bg-charcoal-lighter rounded-lg border border-border flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-dark-gray mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <p class="text-dark-gray text-sm">Project photos coming soon</p>
+            </div>
+          </div>
+          <p class="text-medium-gray text-sm mt-3 italic">50'x60' barndominium with stone accents — Athens, TX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Why Choose a <span class="text-burnt-orange">Barndominium</span>?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {[
+          { title: '30-50% Cost Savings', desc: 'Steel frame construction costs significantly less than traditional stick-built homes while lasting longer.' },
+          { title: 'Open Floor Plans', desc: 'Clear-span steel framing means no load-bearing interior walls — design your layout however you want.' },
+          { title: 'Energy Efficient', desc: 'Metal buildings with spray foam insulation provide excellent R-values, keeping your home comfortable year-round.' },
+          { title: 'Storm Resistant', desc: 'Steel buildings withstand high winds, hail, and severe weather better than wood-frame construction.' },
+          { title: 'Low Maintenance', desc: 'No termites, rot, or warping. Metal exteriors require minimal upkeep compared to wood siding.' },
+          { title: 'Fast Construction', desc: 'Move into your new home faster with pre-engineered steel framing that goes up in weeks, not months.' },
+        ].map(item => (
+          <div class="bg-charcoal border border-border rounded-lg p-6">
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-medium-gray text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-8">Frequently Asked <span class="text-burnt-orange">Questions</span></h2>
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="border-b border-border pb-6">
+            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+            <p class="text-medium-gray leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Build Your Dream Barndominium" description="Get a free, no-obligation quote on your custom barndominium in East Texas." />
+</Layout>

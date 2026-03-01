@@ -1,0 +1,109 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description = 'Huddle Steel Buildings offers custom metal buildings, barndominiums, agricultural structures, and metal roofing in Canton, TX and East Texas. Get a free quote today.',
+  ogImage = '/images/og-default.jpg',
+  canonicalUrl,
+  schema,
+} = Astro.props;
+
+const siteUrl = 'https://www.huddlesteelbuildings.com';
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${siteUrl}/#business`,
+  name: 'Huddle Steel Buildings',
+  description: 'Custom steel and metal building construction in Canton, TX and East Texas. Agricultural, commercial, residential buildings, barndominiums, metal roofing, and churches.',
+  url: siteUrl,
+  telephone: '(903) 865-6200',
+  email: 'Tara@HuddleSteelBuildings.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '29866 State Hwy 64',
+    addressLocality: 'Canton',
+    addressRegion: 'TX',
+    postalCode: '75103',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 32.5565,
+    longitude: -95.8633,
+  },
+  areaServed: [
+    { '@type': 'State', name: 'Texas' },
+    { '@type': 'County', name: 'Van Zandt County' },
+    { '@type': 'County', name: 'Henderson County' },
+    { '@type': 'County', name: 'Kaufman County' },
+    { '@type': 'County', name: 'Smith County' },
+    { '@type': 'County', name: 'Wood County' },
+    { '@type': 'Rains County', name: 'Rains County' },
+    { '@type': 'County', name: 'Hunt County' },
+  ],
+  priceRange: '$$',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '17:00',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Huddle Steel Buildings" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-burnt-orange focus:text-white focus:px-4 focus:py-2 focus:rounded">
+      Skip to content
+    </a>
+    <Navbar />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

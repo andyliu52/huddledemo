@@ -1,0 +1,110 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-border">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <a href="/" class="flex items-center gap-3 shrink-0">
+        <span class="text-xl lg:text-2xl font-extrabold tracking-tight">
+          <span class="text-white">HUDDLE</span>
+          <span class="text-burnt-orange"> STEEL</span>
+        </span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+              isActive(link.href)
+                ? 'text-burnt-orange'
+                : 'text-medium-gray hover:text-white',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/quote"
+          class="ml-4 inline-flex items-center px-5 py-2.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
+        >
+          Get a Free Quote
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 lg:hidden">
+        <a
+          href="/quote"
+          class="inline-flex items-center px-4 py-2 bg-burnt-orange hover:bg-burnt-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
+        >
+          Quote
+        </a>
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="p-2 text-medium-gray hover:text-white transition-colors"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden pb-4">
+      <div class="flex flex-col gap-1 pt-2 border-t border-border">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-2.5 text-base font-medium rounded-md transition-colors',
+              isActive(link.href)
+                ? 'text-burnt-orange bg-charcoal-light'
+                : 'text-medium-gray hover:text-white hover:bg-charcoal-light',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="h-16 lg:h-20"></div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+  if (btn && menu && icon) {
+    btn.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      icon.setAttribute('d', isOpen
+        ? 'M4 6h16M4 12h16M4 18h16'
+        : 'M6 18L18 6M6 6l12 12'
+      );
+    });
+  }
+</script>

@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<Layout
+  title="About Us | Huddle Steel Buildings | Canton, TX"
+  description="Learn about Huddle Steel Buildings, a family-owned metal building company in Canton, TX. Serving East Texas with custom steel buildings, barndominiums, and metal roofing."
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+
+      <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div>
+          <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">About Us</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6">
+            Building <span class="text-burnt-orange">East Texas</span> One Structure at a Time
+          </h1>
+          <div class="space-y-4 text-medium-gray leading-relaxed">
+            <p>
+              Huddle Steel Buildings is a family-owned metal building company based in Canton, Texas. Located along State Highway 64, we've been helping East Texas property owners bring their building projects to life with quality steel construction.
+            </p>
+            <p>
+              Whether you need a barn for your ranch, a warehouse for your business, your dream barndominium, or a new metal roof, our team works with you from design through completion to make sure the finished product exceeds your expectations.
+            </p>
+            <p>
+              We serve communities within 60 miles of Canton, including Tyler, Athens, Terrell, Greenville, Mineola, Emory, and dozens more East Texas towns. Our local roots mean we understand the land, the climate, and the building needs of this region.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 lg:mt-0">
+          <div class="aspect-[4/3] bg-charcoal-lighter rounded-lg border border-border flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-dark-gray mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+              <p class="text-dark-gray text-sm">Team photo coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-white">Our <span class="text-burnt-orange">Values</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-burnt-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Quality First</h3>
+          <p class="text-medium-gray leading-relaxed">
+            We use premium steel and proven construction methods. Every building is engineered to handle East Texas weather and stand the test of time.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-burnt-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Customer Focus</h3>
+          <p class="text-medium-gray leading-relaxed">
+            We listen to your needs and build to your specifications. Our job isn't done until you're completely satisfied with the result.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-burnt-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Honest Pricing</h3>
+          <p class="text-medium-gray leading-relaxed">
+            No hidden fees, no surprises. We provide detailed, transparent quotes so you know exactly what you're getting and what it costs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-white">What We <span class="text-burnt-orange">Offer</span></h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-charcoal-light border border-border rounded-lg p-8">
+          <h3 class="text-xl font-bold text-white mb-3">DIY Building Kits</h3>
+          <p class="text-medium-gray leading-relaxed mb-4">
+            For the hands-on property owner, we provide complete building kits with pre-cut panels, hardware, and detailed instructions. Save on labor costs and build on your own schedule.
+          </p>
+          <ul class="space-y-2 text-sm text-medium-gray">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Pre-engineered components
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Detailed assembly instructions
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Phone support during construction
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-charcoal-light border border-border rounded-lg p-8">
+          <h3 class="text-xl font-bold text-white mb-3">Turn-Key Construction</h3>
+          <p class="text-medium-gray leading-relaxed mb-4">
+            Want us to handle everything? Our turn-key service covers design, engineering, permitting guidance, and complete construction. Just tell us what you need and we'll make it happen.
+          </p>
+          <ul class="space-y-2 text-sm text-medium-gray">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Design through completion
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Professional installation crew
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+              Project management included
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Let's Build Something Together"
+    description="Contact Huddle Steel Buildings for a free quote on your next project."
+  />
+</Layout>

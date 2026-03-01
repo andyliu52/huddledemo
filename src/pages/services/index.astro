@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const services = [
+  {
+    title: 'Agricultural Buildings',
+    description: 'Barns, hay storage, equipment shelters, livestock facilities, and riding arenas designed for East Texas farming and ranching operations.',
+    href: '/services/agricultural',
+    features: ['Equipment Storage', 'Hay Barns', 'Livestock Shelters', 'Riding Arenas'],
+  },
+  {
+    title: 'Commercial Buildings',
+    description: 'Warehouses, retail spaces, auto shops, offices, and industrial facilities. Quick construction with cost-effective steel framing.',
+    href: '/services/commercial',
+    features: ['Warehouses', 'Retail Spaces', 'Auto Shops', 'Office Buildings'],
+  },
+  {
+    title: 'Barndominiums & Residential',
+    description: 'Custom metal homes blending rustic style with modern living. Open floor plans, energy efficiency, and endless design possibilities.',
+    href: '/services/residential',
+    features: ['Custom Floor Plans', 'Energy Efficient', 'Open Layouts', 'Modern Finishes'],
+  },
+  {
+    title: 'Metal Roofing',
+    description: 'Durable, energy-efficient metal roofing for new builds and re-roofing. Multiple colors and profiles to choose from.',
+    href: '/services/metal-roofing',
+    features: ['Standing Seam', 'R-Panel', 'Re-Roofing', 'Color Options'],
+  },
+  {
+    title: 'Church Buildings',
+    description: 'Spacious steel church buildings with clear-span interiors. Cost-effective construction for congregations of any size.',
+    href: '/services/churches',
+    features: ['Clear-Span Design', 'Fellowship Halls', 'Classrooms', 'Multi-Purpose'],
+  },
+];
+---
+
+<Layout
+  title="Metal Building Services | Huddle Steel Buildings | Canton, TX"
+  description="Huddle Steel Buildings offers agricultural, commercial, and residential metal building construction, metal roofing, and church buildings in Canton, TX and East Texas."
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
+
+      <div class="mt-8 mb-12">
+        <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Our Services</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+          Steel Building <span class="text-burnt-orange">Solutions</span>
+        </h1>
+        <p class="text-lg text-medium-gray max-w-3xl">
+          From agricultural barns to custom barndominiums, Huddle Steel Buildings provides complete metal building construction services. Choose between DIY kits or full turn-key construction.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {services.map(service => (
+          <a href={service.href} class="group block bg-charcoal-light border border-border rounded-lg p-6 lg:p-8 hover:border-burnt-orange/50 transition-all">
+            <div class="lg:flex lg:items-start lg:justify-between lg:gap-8">
+              <div class="flex-1">
+                <h2 class="text-2xl font-bold text-white group-hover:text-burnt-orange transition-colors mb-3">
+                  {service.title}
+                </h2>
+                <p class="text-medium-gray leading-relaxed mb-4">{service.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {service.features.map(f => (
+                    <span class="px-3 py-1 bg-charcoal rounded-full text-xs font-medium text-medium-gray border border-border">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="mt-4 lg:mt-0 lg:ml-4 shrink-0">
+                <span class="inline-flex items-center gap-1 text-burnt-orange font-semibold group-hover:gap-2 transition-all">
+                  Learn More
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

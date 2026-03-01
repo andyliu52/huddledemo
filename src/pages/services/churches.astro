@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const faqs = [
+  {
+    question: 'Why choose a steel church building?',
+    answer: 'Steel church buildings offer clear-span interiors without columns, providing unobstructed views and flexible seating. They cost 30-50% less than traditional construction and can be built much faster, getting your congregation into a permanent home sooner.',
+  },
+  {
+    question: 'Can a metal church building look like a traditional church?',
+    answer: 'Absolutely. Steel buildings can be finished with stone, brick, stucco, or other materials to achieve any aesthetic. Steeples, stained glass windows, and other traditional elements can all be incorporated into a steel-framed church.',
+  },
+  {
+    question: 'What sizes are available for church buildings?',
+    answer: 'We build church structures of any size, from small rural chapels to large multi-purpose facilities. Clear-span designs allow for wide-open worship spaces up to 200+ feet without interior columns.',
+  },
+  {
+    question: 'Can the building include classrooms and fellowship areas?',
+    answer: 'Yes. We commonly design church buildings that include a main sanctuary, classrooms, nurseries, fellowship halls, kitchens, and administrative offices all under one roof.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Steel Church Buildings | Worship Spaces & Fellowship Halls | Huddle Steel Buildings"
+  description="Custom steel church buildings in Canton, TX and East Texas. Clear-span worship spaces, fellowship halls, and multi-purpose facilities. Cost-effective and fast construction."
+  schema={faqSchema}
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Church Buildings' }]} />
+
+      <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div>
+          <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Churches</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6">
+            Steel <span class="text-burnt-orange">Church</span> Buildings
+          </h1>
+          <p class="text-lg text-medium-gray leading-relaxed mb-6">
+            Give your congregation a permanent, beautiful, and functional worship space. Steel church buildings from Huddle Steel Buildings provide wide-open interiors, design flexibility, and significant cost savings over traditional construction.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {['Clear-Span Sanctuaries', 'Fellowship Halls', 'Classrooms & Nurseries', 'Multi-Purpose Facilities', 'Administrative Offices', 'Custom Exterior Finishes'].map(item => (
+              <li class="flex items-center gap-3 text-medium-gray">
+                <svg class="w-5 h-5 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/quote" class="inline-flex items-center px-8 py-3.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white font-bold rounded-md transition-colors text-lg">
+            Get a Free Quote
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-0">
+          <div class="aspect-[4/3] bg-charcoal-lighter rounded-lg border border-border flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-dark-gray mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <p class="text-dark-gray text-sm">Project photos coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Why Steel for <span class="text-burnt-orange">Your Church</span>?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {[
+          { title: 'Clear-Span Design', desc: 'No interior columns means every seat has an unobstructed view. Perfect for worship, concerts, and events.' },
+          { title: 'Cost Savings', desc: 'Stretch your building fund further. Steel construction costs 30-50% less than traditional masonry churches.' },
+          { title: 'Fast Construction', desc: 'Get your congregation into a permanent home faster with pre-engineered steel construction.' },
+          { title: 'Design Flexibility', desc: 'Add stone, brick, stucco, steeples, and stained glass to create the look your congregation envisions.' },
+          { title: 'Expandable', desc: 'As your congregation grows, steel buildings can be expanded with minimal cost and disruption.' },
+          { title: 'Low Maintenance', desc: 'Reduce long-term building expenses so more of your budget goes toward ministry and community.' },
+        ].map(item => (
+          <div class="bg-charcoal border border-border rounded-lg p-6">
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-medium-gray text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-8">Frequently Asked <span class="text-burnt-orange">Questions</span></h2>
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="border-b border-border pb-6">
+            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+            <p class="text-medium-gray leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Building a New Church?" description="Get a free, no-obligation quote on a custom steel church building for your congregation." />
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const faqs = [
+  {
+    question: 'How long does a metal roof last?',
+    answer: 'A properly installed metal roof can last 40-70 years, compared to 15-20 years for traditional asphalt shingles. Metal roofing is one of the best long-term investments you can make for your property.',
+  },
+  {
+    question: 'Is metal roofing more expensive than shingles?',
+    answer: 'The upfront cost is higher, but metal roofing pays for itself over time through longevity, lower energy bills, and minimal maintenance. Most homeowners save money in the long run.',
+  },
+  {
+    question: 'What color options are available?',
+    answer: 'We offer dozens of color options including standard colors like burnished slate, galvalume, barn red, and clay, plus premium colors. We can help you choose the perfect color to complement your property.',
+  },
+  {
+    question: 'Can you install a metal roof over existing shingles?',
+    answer: 'In many cases, yes. Installing metal roofing over existing shingles can save on tear-off costs. We\'ll inspect your current roof to determine if this is a viable option for your project.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Metal Roofing | Standing Seam & R-Panel | Huddle Steel Buildings | Canton, TX"
+  description="Professional metal roofing installation in Canton, TX and East Texas. Standing seam, R-panel, and re-roofing services. Durable, energy-efficient, and long-lasting. Free quotes."
+  schema={faqSchema}
+>
+  <section class="py-12 lg:py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Metal Roofing' }]} />
+
+      <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div>
+          <p class="text-burnt-orange font-semibold uppercase tracking-wider text-sm mb-2">Roofing</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6">
+            <span class="text-burnt-orange">Metal Roofing</span> for East Texas
+          </h1>
+          <p class="text-lg text-medium-gray leading-relaxed mb-6">
+            Upgrade to a metal roof that will protect your property for decades. Huddle Steel Buildings provides expert metal roofing installation for homes, businesses, and agricultural properties across East Texas.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {['Standing Seam Metal Roofing', 'R-Panel & Corrugated Roofing', 'Re-Roofing & Roof Replacement', 'New Construction Roofing', 'Multiple Color Options', 'Energy-Efficient Cool Roofing'].map(item => (
+              <li class="flex items-center gap-3 text-medium-gray">
+                <svg class="w-5 h-5 text-burnt-orange shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/quote" class="inline-flex items-center px-8 py-3.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white font-bold rounded-md transition-colors text-lg">
+            Get a Free Quote
+          </a>
+        </div>
+
+        <div class="mt-10 lg:mt-0">
+          <div class="aspect-[4/3] bg-charcoal-lighter rounded-lg border border-border flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-dark-gray mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <p class="text-dark-gray text-sm">Project photos coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Benefits of <span class="text-burnt-orange">Metal Roofing</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {[
+          { title: '40-70 Year Lifespan', desc: 'Metal roofs last 3-4x longer than asphalt shingles, making them the best long-term investment.' },
+          { title: 'Energy Savings', desc: 'Reflective metal roofing can reduce cooling costs by 10-25% during hot East Texas summers.' },
+          { title: 'Storm Resistant', desc: 'Metal roofs withstand winds up to 140 mph and are rated for impact resistance against hail.' },
+          { title: 'Low Maintenance', desc: 'No cracking, shrinking, or eroding. Metal roofs require virtually no maintenance over their lifespan.' },
+          { title: 'Increased Home Value', desc: 'Metal roofing can increase property value and is an attractive selling point for buyers.' },
+          { title: 'Eco-Friendly', desc: 'Metal roofing is 100% recyclable at the end of its life, unlike asphalt shingles that end up in landfills.' },
+        ].map(item => (
+          <div class="bg-charcoal border border-border rounded-lg p-6">
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-medium-gray text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold text-white mb-8">Frequently Asked <span class="text-burnt-orange">Questions</span></h2>
+      <div class="space-y-6">
+        {faqs.map(faq => (
+          <div class="border-b border-border pb-6">
+            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+            <p class="text-medium-gray leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Need a New Metal Roof?" description="Get a free estimate on metal roofing for your home, business, or agricultural property." />
+</Layout>
