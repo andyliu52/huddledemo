@@ -2,27 +2,27 @@
 const currentYear = new Date().getFullYear();
 
 const serviceLinks = [
-  { href: '/services/agricultural', label: 'Agricultural Buildings' },
-  { href: '/services/commercial', label: 'Commercial Buildings' },
-  { href: '/services/residential', label: 'Barndominiums' },
-  { href: '/services/metal-roofing', label: 'Metal Roofing' },
-  { href: '/services/churches', label: 'Church Buildings' },
+  { href: '/services/agricultural/', label: 'Agricultural Buildings' },
+  { href: '/services/commercial/', label: 'Commercial Buildings' },
+  { href: '/services/residential/', label: 'Barndominiums' },
+  { href: '/services/metal-roofing/', label: 'Metal Roofing' },
+  { href: '/services/churches/', label: 'Church Buildings' },
 ];
 
 const areaLinks = [
-  { href: '/service-areas/canton-tx', label: 'Canton, TX' },
-  { href: '/service-areas/tyler-tx', label: 'Tyler, TX' },
-  { href: '/service-areas/athens-tx', label: 'Athens, TX' },
-  { href: '/service-areas/terrell-tx', label: 'Terrell, TX' },
-  { href: '/service-areas/greenville-tx', label: 'Greenville, TX' },
+  { href: '/service-areas/canton-tx/', label: 'Canton, TX' },
+  { href: '/service-areas/tyler-tx/', label: 'Tyler, TX' },
+  { href: '/service-areas/athens-tx/', label: 'Athens, TX' },
+  { href: '/service-areas/terrell-tx/', label: 'Terrell, TX' },
+  { href: '/service-areas/greenville-tx/', label: 'Greenville, TX' },
 ];
 
 const companyLinks = [
-  { href: '/about', label: 'About Us' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/quote', label: 'Get a Quote' },
+  { href: '/about/', label: 'About Us' },
+  { href: '/gallery/', label: 'Gallery' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+  { href: '/quote/', label: 'Get a Quote' },
 ];
 ---
 
@@ -31,10 +31,7 @@ const companyLinks = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       <div>
         <a href="/" class="inline-block mb-4">
-          <span class="text-xl font-extrabold tracking-tight">
-            <span class="text-white">HUDDLE</span>
-            <span class="text-burnt-orange"> STEEL</span>
-          </span>
+          <img src="/huddle-banner-logo.png" alt="Huddle Steel Buildings" class="h-12 w-auto" />
         </a>
         <p class="text-medium-gray text-sm leading-relaxed mb-4">
           Custom steel &amp; metal buildings in Canton, TX and throughout East Texas. DIY kits and turn-key construction.
@@ -79,7 +76,7 @@ const companyLinks = [
             </li>
           ))}
           <li>
-            <a href="/service-areas" class="text-burnt-orange hover:text-burnt-orange-light text-sm font-medium transition-colors">
+            <a href="/service-areas/" class="text-burnt-orange hover:text-burnt-orange-light text-sm font-medium transition-colors">
               View All Areas →
             </a>
           </li>

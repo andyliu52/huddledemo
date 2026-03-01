@@ -31,7 +31,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
       </div>
     )}
     <h3 class="text-lg font-bold text-white mb-2 group-hover:text-burnt-orange transition-colors line-clamp-2">
-      <a href={`/blog/${slug}`}>{title}</a>
+      <a href={`/blog/${slug}/`}>{title}</a>
     </h3>
     <p class="text-medium-gray text-sm leading-relaxed line-clamp-3 mb-3">{description}</p>
     <time datetime={date.toISOString()} class="text-xs text-dark-gray">{formattedDate}</time>

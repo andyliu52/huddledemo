@@ -30,7 +30,7 @@ const nearbyAreas = serviceAreas
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
-        { label: 'Service Areas', href: '/service-areas' },
+        { label: 'Service Areas', href: '/service-areas/' },
         { label: `${city}, TX` },
       ]} />
 
@@ -48,12 +48,12 @@ const nearbyAreas = serviceAreas
           <h2 class="text-2xl font-bold text-white mb-3">Our Services in {city}</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
             {[
-              { href: '/services/agricultural', label: 'Agricultural Buildings' },
-              { href: '/services/commercial', label: 'Commercial Buildings' },
-              { href: '/services/residential', label: 'Barndominiums' },
-              { href: '/services/metal-roofing', label: 'Metal Roofing' },
-              { href: '/services/churches', label: 'Church Buildings' },
-              { href: '/quote', label: 'Get a Free Quote' },
+              { href: '/services/agricultural/', label: 'Agricultural Buildings' },
+              { href: '/services/commercial/', label: 'Commercial Buildings' },
+              { href: '/services/residential/', label: 'Barndominiums' },
+              { href: '/services/metal-roofing/', label: 'Metal Roofing' },
+              { href: '/services/churches/', label: 'Church Buildings' },
+              { href: '/quote/', label: 'Get a Free Quote' },
             ].map(link => (
               <a
                 href={link.href}
@@ -71,7 +71,7 @@ const nearbyAreas = serviceAreas
           <div class="flex flex-wrap gap-3">
             {nearbyAreas.map(a => (
               <a
-                href={`/service-areas/${a.slug}`}
+                href={`/service-areas/${a.slug}/`}
                 class="px-4 py-2 bg-charcoal-light border border-border rounded-full text-sm text-medium-gray hover:text-burnt-orange hover:border-burnt-orange/50 transition-colors"
               >
                 {a.city}, TX

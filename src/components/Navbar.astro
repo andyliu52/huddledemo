@@ -3,12 +3,12 @@ const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/service-areas', label: 'Service Areas' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/services/', label: 'Services' },
+  { href: '/gallery/', label: 'Gallery' },
+  { href: '/service-areas/', label: 'Service Areas' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
 ];
 
 function isActive(href: string): boolean {
@@ -20,11 +20,8 @@ function isActive(href: string): boolean {
 <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-border">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
-      <a href="/" class="flex items-center gap-3 shrink-0">
-        <span class="text-xl lg:text-2xl font-extrabold tracking-tight">
-          <span class="text-white">HUDDLE</span>
-          <span class="text-burnt-orange"> STEEL</span>
-        </span>
+      <a href="/" class="shrink-0">
+        <img src="/huddle-banner-logo.png" alt="Huddle Steel Buildings" class="h-10 lg:h-14 w-auto" />
       </a>
 
       <div class="hidden lg:flex items-center gap-1">
@@ -42,7 +39,7 @@ function isActive(href: string): boolean {
           </a>
         ))}
         <a
-          href="/quote"
+          href="/quote/"
           class="ml-4 inline-flex items-center px-5 py-2.5 bg-burnt-orange hover:bg-burnt-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
         >
           Get a Free Quote
@@ -51,7 +48,7 @@ function isActive(href: string): boolean {
 
       <div class="flex items-center gap-4 lg:hidden">
         <a
-          href="/quote"
+          href="/quote/"
           class="inline-flex items-center px-4 py-2 bg-burnt-orange hover:bg-burnt-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
         >
           Quote
